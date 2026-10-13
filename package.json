@@ -1,0 +1,10 @@
+{
+  "name": "observer-scoreboard",
+  "version": "1.0.0",
+  "description": "SE 340 Project 1: Observer pattern demo using a live sports scoreboard",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT"
+}
