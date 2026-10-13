@@ -1,41 +1,24 @@
-# Observer Pattern: Live Sports Scoreboard
+# Observer Pattern Scoreboard
 
-SE 340 Software Architecture, Project 1 (Design Patterns), Fall 2026.
-
-A small Node.js console app that demonstrates the Observer pattern. A `GameScore`
-subject holds the game state, and independent observers react whenever the score changes.
+SE 340 Project 1 (Design Patterns). A small Node.js program that shows the Observer pattern using a sports scoreboard.
 
 ## Run it
 
-Requires Node.js 18 or newer. No dependencies to install.
+You need Node.js installed. There is nothing else to install.
 
 ```
-npm start
+node index.js
 ```
 
-(or `node index.js`)
+## How it works
 
-## How the program works
-
-`npm start` opens a menu: enter a score, add an observer, remove an observer, or quit.
-The program starts with no observers attached.
-
-1. Enter a score with no observers and nothing reacts.
-2. Add observers and enter a score: each attached observer reacts in its own way.
-3. Remove an observer and enter another score: only the remaining observers react.
-
-Observers can be added and removed while the program runs, and `GameScore` never changes.
+The program shows a menu where you can enter a score, add an observer, remove an observer, or quit. It starts with no observers, so the first score you enter does nothing. Add some observers, enter another score, and each one reacts in its own way. You can add and remove them while the program is running.
 
 ## Files
 
-| File | Role |
-| --- | --- |
-| `Observer.js` | The Observer interface: every subscriber must implement `update(state)` |
-| `GameScore.js` | The Subject: holds score/period, `attach`, `detach`, `setScore`, `notifyObservers` |
-| `ScoreboardDisplay.js` | Observer that prints the current score and period |
-| `NotificationService.js` | Observer that simulates a fan alert when a team scores |
-| `StatsLogger.js` | Observer that records a timestamped history of changes |
-| `index.js` | The interactive menu that ties everything together |
-
-`GameScore` only ever calls `observer.update(state)`. It never names a concrete observer,
-so new observers can be added without editing it.
+- `GameScore.js`: the subject. It holds the score and the list of observers.
+- `Observer.js`: the base class every observer extends.
+- `ScoreboardDisplay.js`: prints the score and period.
+- `NotificationService.js`: prints an alert when a team scores.
+- `StatsLogger.js`: keeps a history of every score and prints it.
+- `index.js`: the menu.
